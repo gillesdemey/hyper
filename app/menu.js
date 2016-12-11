@@ -150,6 +150,16 @@ module.exports = ({createWindow, updatePlugins}) => {
         accelerator: accelerators.paste
       },
       {
+        label: 'Find',
+        role: 'find',
+        accelerator: accelerators.find,
+        click(item, focusedWindow) {
+          if (focusedWindow) {
+            focusedWindow.rpc.emit('show search input');
+          }
+        }
+      },
+      {
         role: 'selectall',
         accelerator: accelerators.selectAll
       },
